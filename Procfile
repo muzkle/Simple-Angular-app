@@ -1,4 +1,2 @@
-web: node dist/server.js
-
-web: node dashboard/index.js
-api: node api/index.js
+web: node dashboard/dist/index.html
+api: node api/dist/server.js
