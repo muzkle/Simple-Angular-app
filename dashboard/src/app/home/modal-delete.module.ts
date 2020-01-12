@@ -7,7 +7,7 @@ import { UsersService } from './users.service';
     <h4>Remover usuário</h4>
     <mat-dialog-content class="text-center">
       Deseja mesmo remover o usuário:<br />
-      <b>{{ fromPage.content.name }}</b>
+      <b>{{ fromPage?.content?.name }}</b>
     </mat-dialog-content>
     <mat-dialog-actions>
       <button mat-button mat-flat-button class="custom-modal btn-success" (click)="confirmDialog()">Sim</button>

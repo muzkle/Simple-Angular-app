@@ -3,9 +3,6 @@
   <form (ngSubmit)="update()" [formGroup]="userForm" id="ngForm" #documentEditForm="ngForm" novalidate>
     <mat-form-field>
       <input matInput placeholder="Nome" formControlName="name" type="name" />
-      <mat-error *ngIf="userForm.controls.name.invalid && userForm.controls.name.touched">
-        Por favor, coloque um nome válido!
-      </mat-error>
     </mat-form-field>
 
     <mat-form-field>
@@ -15,9 +12,6 @@
           {{ gender.viewValue }}
         </mat-option>
       </mat-select>
-      <mat-error *ngIf="userForm.controls.gender.invalid || userForm.controls.gender.required">
-        O sexo é um campo <strong>obrigatório</strong>!
-      </mat-error>
     </mat-form-field>
   </form>
 </mat-dialog-content>

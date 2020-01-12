@@ -29,7 +29,7 @@
                   {{ gender.viewValue }}
                 </mat-option>
               </mat-select>
-              <mat-error *ngIf="registerForm.controls.gender.invalid || registerForm.controls.gender.required">
+              <mat-error *ngIf="registerForm.controls.gender.invalid">
                 O sexo é um campo <strong>obrigatório</strong>!
               </mat-error>
             </mat-form-field>

@@ -2,17 +2,11 @@ import { Component, OnInit, Optional, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 
 @Component({
-  template: `
-    <mat-dialog-content>
-      {{ this.fromPage.content.message }}
-    </mat-dialog-content>
-    <mat-dialog-actions>
-      <button mat-button color="primary" class="custom-modal" (click)="closeDialog()">OK</button>
-    </mat-dialog-actions>
-  `
+  selector: 'app-register-modal',
+  templateUrl: './modal.component.html'
 })
 export class FileNameDialogComponent implements OnInit {
-  fromPage: string;
+  fromPage: any;
   fromDialog: string;
 
   constructor(
