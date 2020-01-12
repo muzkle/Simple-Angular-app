@@ -1,0 +1,80 @@
+<div class="login-container">
+  <div class="login-box">
+    <h1 translate>APP_NAME</h1>
+    <div class="container">
+      <div class="card col-md-6 mt-3 mx-auto">
+        <div class="card-body">
+          <h4 class="card-title text-center">
+            <i class="far fa-3x fa-user-circle"></i>
+          </h4>
+          <form (ngSubmit)="register()" [formGroup]="registerForm" novalidate>
+            <mat-form-field>
+              <input matInput placeholder="Nome" formControlName="name" type="name" />
+              <mat-error *ngIf="registerForm.controls.name.invalid && registerForm.controls.name.touched">
+                Por favor, coloque um nome válido!
+              </mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+              <input matInput placeholder="Email" formControlName="email" type="email" />
+              <mat-error *ngIf="registerForm.controls.email.invalid && registerForm.controls.email.touched">
+                Por favor, coloque um email válido!
+              </mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+              <mat-label>Sexo</mat-label>
+              <mat-select formControlName="gender">
+                <mat-option *ngFor="let gender of genders" [value]="gender.value">
+                  {{ gender.viewValue }}
+                </mat-option>
+              </mat-select>
+              <mat-error *ngIf="registerForm.controls.gender.invalid || registerForm.controls.gender.required">
+                O sexo é um campo <strong>obrigatório</strong>!
+              </mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+              <input matInput placeholder="Senha" formControlName="password" type="password" />
+              <mat-error *ngIf="registerForm.controls.password.hasError('required')">
+                A senha é um campo <strong>obrigatório</strong>!
+              </mat-error>
+              <mat-error *ngIf="registerForm.controls.password.hasError('hasNumber')">
+                Sua senha precisa ter pelo menos 1 número!
+              </mat-error>
+              <mat-error *ngIf="registerForm.controls.password.hasError('hasCapitalCase')">
+                Sua senha precisa ter pelo menos 1 letra maiúscula!
+              </mat-error>
+              <mat-error *ngIf="registerForm.controls.password.hasError('hasSmallCase')">
+                Sua senha precisa ter pelo menos 1 letra minúscula!
+              </mat-error>
+              <mat-error
+                *ngIf="
+                  registerForm.controls.password.hasError('minlength') &&
+                  !registerForm.controls.password.hasError('hasNumber') &&
+                  !registerForm.controls.password.hasError('hasCapitalCase') &&
+                  !registerForm.controls.password.hasError('hasSmallCase')
+                "
+              >
+                Sua senha precisa ter no mínimo 10 caracteres!
+              </mat-error>
+              <mat-error
+                *ngIf="
+                  registerForm.controls['password'].hasError('maxlength') &&
+                  !registerForm.controls.password.hasError('hasNumber') &&
+                  !registerForm.controls.password.hasError('hasCapitalCase') &&
+                  !registerForm.controls.password.hasError('hasSmallCase')
+                "
+              >
+                Sua senha precisa ter menos que 20 caracteres!
+              </mat-error>
+            </mat-form-field>
+
+            <button mat-button color="secondary" [disabled]="registerForm.invalid || isLoading">Cadastrar</button>
+            <div class="register-announce">Já possui uma conta? <a href="/login">Faça seu login</a>.</div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

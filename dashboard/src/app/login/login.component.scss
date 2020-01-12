@@ -1,0 +1,72 @@
+@import "src/theme/theme-variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+
+.login-container {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+::ng-deep mat-dialog-actions {
+  button {
+    &.custom-modal {
+      width: 100%;
+      background-color: #171525;
+      color: #fff !important;
+      margin: 15px 0;
+    }
+  }
+}
+
+.login-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 100%;
+  background-color: #171525;
+  h1 {
+    color: #e7bf22;
+  }
+  .card {
+    padding: 45px 40px;
+    h4 {
+      padding-bottom: 50px;
+      i {
+        color: #171525;
+      }
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      input {
+        width: 100%;
+      }
+      button {
+        margin-top: 15px;
+        background-color: #171525;
+        color: #fff;
+        height: 60px;
+        &:disabled {
+          background-color: lightgrey;
+          color: #171525;
+        }
+      }
+      .register-announce {
+        margin: 15px 0 0 0;
+        a {
+          display: inline;
+          color: #e7bf22;
+        }
+      }
+    }
+  }
+}
+
+@include media-breakpoint-down(xs) {
+  .container {
+    width: 100%;
+  }
+}

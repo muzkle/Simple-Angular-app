@@ -1,0 +1,40 @@
+<div class="container-fluid">
+  <div class="jumbotro">
+    <div class="header-actions text-right">
+      <button mat-button (click)="exportAsXLSX()" class="btn-success">Exportar para Excel</button>
+    </div>
+
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef>ID</th>
+        <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef>Nome</th>
+        <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef>Email</th>
+        <td mat-cell *matCellDef="let element">{{ element.email }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="gender">
+        <th mat-header-cell *matHeaderCellDef>Sexo</th>
+        <td mat-cell *matCellDef="let element">{{ element.gender | camelCase }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef class="text-right">Actions</th>
+        <td mat-cell *matCellDef="let element; let i = index" class="text-right">
+          <button mat-button class="edit" (click)="editUser(element, i)"><i class="fa fa-edit"></i></button>
+          <button mat-button class="delete" (click)="deleteUser(element, i)"><i class="fa fa-trash"></i></button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+  </div>
+</div>

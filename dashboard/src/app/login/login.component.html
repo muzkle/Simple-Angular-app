@@ -1,0 +1,32 @@
+<div class="login-container">
+  <div class="login-box">
+    <h1 translate>APP_NAME</h1>
+    <div class="container">
+      <div class="card col-md-6 mt-3 mx-auto">
+        <div class="card-body">
+          <h4 class="card-title text-center">
+            <i class="far fa-3x fa-user-circle"></i>
+          </h4>
+          <form (ngSubmit)="login()" [formGroup]="loginForm" novalidate>
+            <mat-form-field>
+              <input matInput placeholder="Email" formControlName="email" type="email" />
+              <mat-error *ngIf="loginForm.controls.email.invalid && loginForm.controls.email.touched">
+                Por favor, coloque um email válido!
+              </mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+              <input matInput placeholder="Senha" formControlName="password" type="password" />
+              <mat-error *ngIf="loginForm.controls.password.invalid || loginForm.controls.password.required">
+                A senha é um campo <strong>obrigatório</strong>!
+              </mat-error>
+            </mat-form-field>
+
+            <button mat-button color="secondary" [disabled]="loginForm.invalid || isLoading">Entrar</button>
+            <div class="register-announce">Ainda não tem uma conta? <a href="/register">Cadastre-se</a>.</div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

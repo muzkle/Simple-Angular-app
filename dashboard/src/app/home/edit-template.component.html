@@ -1,0 +1,29 @@
+<h4>Editar usuário</h4>
+<mat-dialog-content class="text-center">
+  <form (ngSubmit)="update()" [formGroup]="userForm" id="ngForm" #documentEditForm="ngForm" novalidate>
+    <mat-form-field>
+      <input matInput placeholder="Nome" formControlName="name" type="name" />
+      <mat-error *ngIf="userForm.controls.name.invalid && userForm.controls.name.touched">
+        Por favor, coloque um nome válido!
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Sexo</mat-label>
+      <mat-select formControlName="gender">
+        <mat-option *ngFor="let gender of genders" [value]="gender.value">
+          {{ gender.viewValue }}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="userForm.controls.gender.invalid || userForm.controls.gender.required">
+        O sexo é um campo <strong>obrigatório</strong>!
+      </mat-error>
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button mat-flat-button class="custom-modal btn-success" form="ngForm" type="submit">Sim</button>
+  <button mat-button mat-flat-button class="custom-modal btn-danger" type="button" (click)="closeDialog()">
+    Cancelar
+  </button>
+</mat-dialog-actions>

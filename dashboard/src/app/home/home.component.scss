@@ -1,0 +1,60 @@
+.logo {
+  width: 100px;
+}
+
+.jumbotro {
+  display: flex;
+  flex-direction: column;
+  button {
+    &.btn-success {
+      background-color: #208336;
+      margin-bottom: 20px;
+    }
+  }
+}
+
+q {
+  font-style: italic;
+  font-size: 1.2rem;
+  quotes: "« " " »";
+}
+
+table {
+  flex: 1;
+}
+
+::ng-deep mat-dialog-container {
+  h4 {
+    margin-bottom: 35px;
+  }
+}
+button {
+  color: #fff;
+  margin-left: 10px;
+  min-width: 32px;
+  font-size: 12px;
+  &.edit {
+    background-color: lightseagreen;
+  }
+
+  &.delete {
+    background-color: maroon;
+  }
+}
+
+::ng-deep mat-dialog-actions {
+  display: flex;
+  button {
+    &.custom-modal {
+      color: #fff !important;
+      flex: 1;
+      margin-bottom: 20px;
+      &.btn-success {
+        background-color: #208336;
+      }
+      &.btn-danger {
+        background-color: #c02231;
+      }
+    }
+  }
+}
